@@ -16,7 +16,8 @@ vector<string> split(const string &);
  */
 
 string chessboardGame(int x, int y) {
-
+    std::string result {};
+    return result;
 }
 
 int main()
