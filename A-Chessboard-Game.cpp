@@ -15,8 +15,15 @@ vector<string> split(const string &);
  *  2. INTEGER y
  */
 
-string chessboardGame(int x, int y) {
+string chessboardGame(int x, int y)
+{
     std::string result = {"Second"};
+    
+    if (!(x%4%3) || !(y%4%3))
+    {
+        result = "First";
+    }
+    
     return result;
 }
 
