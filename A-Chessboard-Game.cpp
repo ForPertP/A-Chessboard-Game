@@ -19,7 +19,7 @@ string chessboardGame(int x, int y)
 {
     std::string result = {"Second"};
     
-    if (!(x%4%3) || !(y%4%3))
+    if (!(x % 4 % 3) || !(y % 4 % 3))
     {
         result = "First";
     }
