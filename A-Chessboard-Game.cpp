@@ -15,6 +15,14 @@ vector<string> split(const string &);
  *  2. INTEGER y
  */
 
+string chessboardGame(int x, int y) {
+    if (x % 4 == 0 || x % 4 == 3 || y % 4 == 0 || y % 4 == 3) 
+    {
+        return "First";
+    }
+    
+    return "Second";
+}
 
 
 int main()
