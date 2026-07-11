@@ -1,63 +1,33 @@
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Collections;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text.RegularExpressions;
-using System.Text;
-using System;
-
-class Result
-{
-
-    /*
-     * Complete the 'chessboardGame' function below.
-     *
-     * The function is expected to return a STRING.
-     * The function accepts following parameters:
-     *  1. INTEGER x
-     *  2. INTEGER y
-     */
-
-    public static string chessboardGame(int x, int y)
-    {
-        if (x % 4 == 0 || x % 4 == 3 || y % 4 == 0 || y % 4 == 3) 
-        {
-            return "First";
-        }
-        
-        return "Second";
-    }
-}
 
 
-class Solution
-{
-    public static void Main(string[] args)
-    {
-        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+--
+-- Complete the 'chessboardGame' function below.
+--
+-- The function is expected to return a STRING.
+-- The function accepts following parameters:
+--  1. INTEGER x
+--  2. INTEGER y
+--
 
-        int t = Convert.ToInt32(Console.ReadLine().Trim());
 
-        for (int tItr = 0; tItr < t; tItr++)
-        {
-            string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
 
-            int x = Convert.ToInt32(firstMultipleInput[0]);
+local fptr = io.open(os.getenv("OUTPUT_PATH"), "w")
 
-            int y = Convert.ToInt32(firstMultipleInput[1]);
+local t = io.stdin:read("*n", "*l")
 
-            string result = Result.chessboardGame(x, y);
+for titr = 1, t do
+    local firstmultipleinput = {}
+    for token in string.gmatch(io.stdin:read("*l"):gsub("%s+$", ""), "[^%s]+") do
+        table.insert(firstmultipleinput, token)
+    end
 
-            textWriter.WriteLine(result);
-        }
+    local x = tonumber(firstmultipleinput[1]:match("^%s*(.-)%s*$"))
 
-        textWriter.Flush();
-        textWriter.Close();
-    }
-}
+    local y = tonumber(firstmultipleinput[2]:match("^%s*(.-)%s*$"))
+
+    local result = chessboardGame(x, y)
+
+    fptr:write(result, "\n")
+end
+
+fptr:close()
