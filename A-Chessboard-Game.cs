@@ -9,7 +9,13 @@
 --  2. INTEGER y
 --
 
-
+function chessboardGame(x, y)
+    if (x % 4 == 0 or x % 4 == 3 or y % 4 == 0 or y % 4 == 3) then
+        return "First";
+    end
+    
+    return "Second";
+end
 
 local fptr = io.open(os.getenv("OUTPUT_PATH"), "w")
 
